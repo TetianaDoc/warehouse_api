@@ -1,5 +1,6 @@
 package com.gmail.doctatyana1.warehouse_api.service;
 
+import com.gmail.doctatyana1.warehouse_api.domain.Goods;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,7 +26,7 @@ final class WarehouseServiceImplTest {
         //Arrange
         long numberOfGoodsBefore = warehouseService.count();
         //Act
-        warehouseService.add();
+        warehouseService.add(new Goods ("book", 22.0));
         //Assert
         assertThat(warehouseService.count()).isEqualTo(numberOfGoodsBefore + 1);
     }

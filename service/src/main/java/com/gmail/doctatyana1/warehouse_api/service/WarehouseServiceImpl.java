@@ -1,5 +1,7 @@
 package com.gmail.doctatyana1.warehouse_api.service;
 
+import com.gmail.doctatyana1.warehouse_api.domain.Goods;
+
 /**
  * Add implementation for interface {@link WarehouseService}
  */
@@ -13,7 +15,7 @@ public final class WarehouseServiceImpl implements WarehouseService {
     }
 
     @Override
-    public void add() {
+    public void add(Goods goods) {
         numberOfGoods++;
     }
 
