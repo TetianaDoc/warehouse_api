@@ -1,9 +1,24 @@
-dependencies {
-//    implementation 'org.apache.commons:commons-text'
-//    implementation project(':utilities')
+buildscript {
+    repositories { mavenCentral() }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${versions.spring_boot}")
+    }
 }
 
-//application {
-//    // Define the main class for the application.
-//    mainClass = 'com.gmail.doctatyana1.warehouse_api.app.App'
-//}
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencies {
+    implementation project(':service')
+    implementation libs.spring_boot_web_starter
+}
+
+springBoot{
+    mainClass='com.gmail.doctatyana1.warehouse_api.app.App'
+}
+
+// gradle bootRun --debug-jvm
+bootRun {
+    systemProperty "spring.profiles.active", "local"
+}
+
