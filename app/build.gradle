@@ -11,6 +11,9 @@ apply plugin: 'io.spring.dependency-management'
 dependencies {
     implementation project(':service')
     implementation libs.spring_boot_web_starter
+
+    testImplementation libs.spring_test
+    testImplementation libs.test
 }
 
 springBoot{
