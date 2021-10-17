@@ -1,6 +1,7 @@
 package com.gmail.doctatyana1.warehouse_api.service;
 
 import com.gmail.doctatyana1.warehouse_api.domain.Goods;
+import com.gmail.doctatyana1.warehouse_api.repository.WarehouseRepository;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,12 +12,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 final class WarehouseServiceImplTest {
-    private WarehouseService warehouseService = new WarehouseServiceImpl(10);
+    private WarehouseService warehouseService = new WarehouseServiceImpl(new WarehouseRepository(10));
 
     @Test
     void shouldCountGoods() {
         //Arrange
-        warehouseService = new WarehouseServiceImpl(20);
+        warehouseService = new WarehouseServiceImpl(new WarehouseRepository(20));
         // Act and Assert
         assertThat(warehouseService.count()).isEqualTo(20);
     }
